@@ -5,9 +5,13 @@ block content
   form(method="POST" action="/")
     label(for="userText") Enter your text here:
     br
-    input(type="text" id="userText" name="userText")
+    input(type="text" id="userText" name="userText" value=`${phrase}`)
     br
     br
     button(type="submit") Submit
   if message
     p=message
+  h3 A palindrome is spelt the same forward and backwards!
+  h4 One example of a palindrome is Tacocat! Try it
+  h4 If you failed to do that try Racecar. That also works.
+  h3 Your favorite word "Pen" is in fact not a palindrome...
