@@ -24,13 +24,28 @@ function checkPalidrone(phrase){
   let temp = phrase.split("");
   temp = temp.reverse();
   temp = temp.join("")
+
+  if (phrase.toLowerCase().replace("'", "") === temp.toLowerCase().replace("'", "") ){
+    return true
+  }
+  if (phrase.toLowerCase().replace(".", "") === temp.toLowerCase().replace(".", "") ){
+    return true
+  }
+  if (phrase.toLowerCase().replace(",", "") === temp.toLowerCase().replace(",", "") ){
+    return true
+  }
   if (phrase.toLowerCase().replace(":", "") === temp.toLowerCase().replace(":", "") ){
     return true
   }
-  else {
-    return false
+  if (phrase.toLowerCase().replace(";", "") === temp.toLowerCase().replace(";", "") ){
+    return true
   }
-
+  if (phrase.toLowerCase().replace("!", "") === temp.toLowerCase().replace("!", "") ){
+    return true
+  }
+  if (phrase.toLowerCase().replace("?", "") === temp.toLowerCase().replace("?", "") ){
+    return true
+  }
   if (phrase.toLowerCase().replace(" ", "") === temp.toLowerCase().replace(" ", "") ){
     return true
   }
@@ -41,7 +56,11 @@ function checkPalidrone(phrase){
 
 function getResultDescription (phrase){
   if (checkPalidrone(phrase)){
-    return `${phrase} is a palindrome.`
+    let temp = phrase.split("");
+    temp = temp.reverse();
+    return `${phrase} is a palindrome. ${temp} this is how it is spelled backwards`
   }
-  return `${phrase} is not a palindrome.`
+  let temp = phrase.split("");
+  temp = temp.reverse();
+  return `${phrase} is not a palindrome. ${temp} this is how it is spelled backwards`
 }
